@@ -1,0 +1,44 @@
+MomoCut Stream Studio - Installation Laragon
+===========================================
+
+1) Copie le dossier momocut-stream-studio dans :
+   C:\laragon\www\
+
+2) Démarre Laragon : Apache + MySQL.
+
+3) Ouvre :
+   http://localhost/momocut-stream-studio/install.php
+
+4) L'installation crée automatiquement la base momocut_db et les tables.
+
+5) Limites incluses :
+   - Vidéo MP4 : max 2 Go
+   - Watermark PNG : max 150 Mo
+
+6) Active zip dans php.ini si ZipArchive n'est pas OK :
+   extension=zip
+
+7) Pour gros uploads, dans le php.ini de Laragon :
+   upload_max_filesize = 2048M
+   post_max_size = 2300M
+   memory_limit = 3072M
+   max_execution_time = 0
+   max_input_time = 0
+
+8) FFmpeg / FFprobe
+   Ce ZIP contient une correction spéciale Laragon : si le terminal Windows trouve ffmpeg
+   mais PHP ne le trouve pas, l'application scanne aussi les emplacements Winget/Gyan FFmpeg.
+
+   Pour vérifier dans le terminal Laragon :
+   where ffmpeg
+   where ffprobe
+
+   Si l'application ne trouve toujours pas FFmpeg, copie les chemins affichés par where dans :
+   config/app.php
+
+   Exemple :
+   define('FFMPEG_BINARY', 'C:/Users/TON_NOM/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg.../bin/ffmpeg.exe');
+   define('FFPROBE_BINARY', 'C:/Users/TON_NOM/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg.../bin/ffprobe.exe');
+
+9) Redémarre Laragon puis ouvre :
+   http://localhost/momocut-stream-studio/

@@ -1,0 +1,16 @@
+DirectoryIndex index.php
+Options -Indexes
+AddDefaultCharset UTF-8
+LimitRequestBody 0
+
+<FilesMatch "\.(env|log)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_php.c>
+    php_value upload_max_filesize 2048M
+    php_value post_max_size 2300M
+    php_value max_execution_time 0
+    php_value max_input_time 0
+    php_value memory_limit 3072M
+</IfModule>
