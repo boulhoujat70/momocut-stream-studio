@@ -1,0 +1,3 @@
+/* Fichier complémentaire. Tailwind est chargé via CDN pour faciliter l'installation locale sous Laragon. */
+video { background: #020617; }
+input[type="file"]::file-selector-button { cursor: pointer; }
